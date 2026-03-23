@@ -78,21 +78,41 @@ const Content = () => {
 
       {/* PAGE 3: HUD / MICRO-TEXTURE */}
       <section className="section section-hud">
-        <div className="hud-labels">
-          <div className="hud-label left-top">
-             <div className="line-pointer"></div>
-             <p className="stat-label">MICRO-TEXTURE</p>
-             <h3 className="hud-value">1.2mm</h3>
-             <p className="stat-label">PEBBLE HEIGHT</p>
+        <div className="hud-container">
+          <div className="hud-label top-left">
+            <div className="hud-line-v"></div>
+            <div className="hud-content">
+              <p className="label-tiny">MICRO-TEXTURE</p>
+              <div className="hud-value-row">
+                <span className="hud-value-large">1.2mm</span>
+                <div className="hud-line-h"></div>
+              </div>
+              <p className="label-tiny">PEBBLE HEIGHT</p>
+            </div>
           </div>
-          <div className="hud-label right-bottom">
-             <h3 className="hud-value">High-Tack</h3>
-             <p className="stat-label">COATING SPEC</p>
-             <div className="line-pointer right"></div>
+
+          <div className="hud-label center-left">
+             <p className="label-tiny">ELEVATION: 12.8°</p>
           </div>
-          <div className="hud-meta left-mid">ELEVATION: 12.8°</div>
-          <div className="hud-meta right-mid">AZIMUTH: 45.2°</div>
-          <div className="hud-meta-bottom">CHANNEL DEPTH</div>
+
+          <div className="hud-label bottom-right">
+            <div className="hud-content align-right">
+              <p className="label-tiny">COATING SPEC</p>
+              <div className="hud-value-row rev">
+                <div className="hud-line-h"></div>
+                <span className="hud-value-large">High-Tack</span>
+              </div>
+              <div className="hud-line-v"></div>
+            </div>
+          </div>
+
+          <div className="hud-label center-right">
+             <p className="label-tiny">AZIMUTH: 45.2°</p>
+          </div>
+
+          <div className="hud-label bottom-center">
+             <p className="label-tiny letter-spacing-lg">CHANNEL DEPTH</p>
+          </div>
         </div>
       </section>
 

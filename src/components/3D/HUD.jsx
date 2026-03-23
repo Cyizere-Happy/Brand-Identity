@@ -18,35 +18,49 @@ const HUD = () => {
   });
 
   return (
-    <group ref={groupRef} position={[0, 0, 1.8]}>
-      {/* Razor-thin Rings */}
+    <group ref={groupRef} position={[0, 0, 3.5]}>
+      {/* Concentric Tech Rings */}
+      <mesh>
+        <ringGeometry args={[2.2, 2.201, 128]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.05} />
+      </mesh>
       <mesh>
         <ringGeometry args={[2.0, 2.002, 128]} />
         <meshBasicMaterial color="#ffffff" transparent opacity={0.1} />
       </mesh>
       <mesh>
-        <ringGeometry args={[1.8, 1.802, 128]} />
-        <meshBasicMaterial color="#F57C00" transparent opacity={0.2} />
+        <ringGeometry args={[1.8, 1.805, 128]} />
+        <meshBasicMaterial color="#FF4D00" transparent opacity={0.15} />
+      </mesh>
+      <mesh>
+        <ringGeometry args={[1.5, 1.501, 64]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.05} />
       </mesh>
 
-      {/* Measurement Markers */}
-      {[0, 90, 180, 270].map((rot) => (
-        <group key={rot} rotation={[0, 0, (rot * Math.PI) / 180]}>
-          <mesh position={[0, 2.0, 0]}>
-            <boxGeometry args={[0.005, 0.1, 0.005]} />
-            <meshBasicMaterial color="#ffffff" transparent opacity={0.3} />
+      {/* Measurement Markers (Outer) */}
+      {Array.from({ length: 12 }).map((_, i) => (
+        <group key={i} rotation={[0, 0, (i * 30 * Math.PI) / 180]}>
+          <mesh position={[0, 2.2, 0]}>
+            <boxGeometry args={[0.005, 0.08, 0.005]} />
+            <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
           </mesh>
         </group>
       ))}
 
-      {/* Pointer Lines (connecting to UI labels) */}
+      {/* Crosshair Dots */}
+      {[0, 90, 180, 270].map((rot) => (
+        <group key={rot} rotation={[0, 0, (rot * Math.PI) / 180]}>
+          <mesh position={[0, 1.4, 0]}>
+            <sphereGeometry args={[0.01, 8, 8]} />
+            <meshBasicMaterial color="#FF4D00" transparent opacity={0.5} />
+          </mesh>
+        </group>
+      ))}
+
+      {/* Subtle Scanner Line */}
       <mesh rotation={[0, 0, Math.PI / 4]}>
-        <boxGeometry args={[4.5, 0.002, 0.002]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.05} />
-      </mesh>
-      <mesh rotation={[0, 0, -Math.PI / 4]}>
-        <boxGeometry args={[4.5, 0.002, 0.002]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.05} />
+        <boxGeometry args={[4.4, 0.001, 0.001]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.03} />
       </mesh>
     </group>
   );

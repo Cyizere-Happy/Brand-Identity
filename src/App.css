@@ -287,6 +287,110 @@ body {
 
 .spacer { flex: 1; }
 
+/* HUD SECTION (MICRO-TEXTURE) */
+.section-hud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hud-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  pointer-events: none;
+}
+
+.hud-label {
+  position: absolute;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.label-tiny {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #666;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.letter-spacing-lg {
+  letter-spacing: 0.5em;
+}
+
+.hud-value-large {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: white;
+  line-height: 1;
+}
+
+.hud-value-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.2rem 0;
+}
+
+.hud-value-row.rev {
+  flex-direction: row;
+}
+
+.hud-line-h {
+  height: 1px;
+  width: 40px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hud-line-v {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+.align-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.top-left {
+  top: 15%;
+  left: 10%;
+}
+
+.bottom-right {
+  bottom: 15%;
+  right: 10%;
+}
+
+.center-left {
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+.center-right {
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+
+.bottom-center {
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hud-content {
+  display: flex;
+  flex-direction: column;
+}
+
 /* PODIUM SECTION (THE CHAMPION) */
 .section-podium {
   justify-content: center;
