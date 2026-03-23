@@ -287,6 +287,115 @@ body {
 
 .spacer { flex: 1; }
 
+/* AERODYNAMICS SECTION (PERFECT FLIGHT) */
+.section-aerodynamics {
+  background: linear-gradient(to right, rgba(0,0,0,0) 50%, rgba(255,255,255,0.02) 50%);
+  background-size: 4px 100%;
+}
+
+.layout-aero {
+  width: 100%;
+  padding: 0 10% 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.aero-header {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.pill-label {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.title-huge-condensed {
+  font-family: var(--font-display);
+  font-size: 7rem;
+  line-height: 0.85;
+  margin: 0;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.aero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.aero-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.aero-stat-main {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.aero-val {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  color: white;
+  line-height: 1;
+}
+
+.aero-dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+}
+
+.aero-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+}
+
+.aero-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.aero-description {
+  max-width: 400px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #888;
+  font-weight: 500;
+}
+
 /* HUD SECTION (MICRO-TEXTURE) */
 .section-hud {
   display: flex;

@@ -55,24 +55,34 @@ const Content = () => {
       </section>
 
       {/* PAGE 2: PERFECT FLIGHT */}
-      <section className="section section-split">
-        <div className="spacer"></div>
-        <div className="layout-detail-right">
-          <div className="metric-group">
-            <p className="label-light">AERODYNAMICS</p>
-            <h2 className="title-medium">PERFECT<br/>FLIGHT</h2>
+      <section className="section section-split section-aerodynamics">
+        <div className="layout-aero">
+          <div className="aero-header">
+            <span className="pill-label">AERODYNAMICS</span>
+            <h1 className="title-huge-condensed">PERFECT<br/>FLIGHT</h1>
           </div>
-          <div className="stat-block-inline">
-            <div className="stat-val">0.85</div>
-            <p className="stat-label">DRAG COEFFICIENT</p>
-            <div className="dot-radar"></div>
+          
+          <div className="aero-stats">
+            <div className="aero-stat-item">
+              <div className="aero-stat-main">
+                <span className="aero-val">0.85</span>
+                <span className="aero-dot"></span>
+              </div>
+              <p className="aero-label">DRAG COEFFICIENT</p>
+            </div>
+            
+            <div className="aero-stat-item">
+              <div className="aero-stat-main">
+                <span className="aero-val">28.5</span>
+                <span className="aero-dot"></span>
+              </div>
+              <p className="aero-label">ROTATIONAL STABILITY</p>
+            </div>
           </div>
-          <div className="stat-block-inline">
-            <div className="stat-val">28.5</div>
-            <p className="stat-label">ROTATIONAL STABILITY</p>
-            <div className="dot-radar"></div>
-          </div>
-          <p className="stat-desc">Symmetrically balanced weight distribution ensures true flight path and consistent rotation speed, critical for long-range precision.</p>
+          
+          <p className="aero-description">
+            Symmetrically balanced weight distribution ensures true flight path and consistent rotation speed, critical for long-range precision.
+          </p>
         </div>
       </section>
 
