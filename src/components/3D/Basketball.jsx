@@ -31,15 +31,16 @@ const Basketball = () => {
   }, []);
 
   const material = useMemo(() => new THREE.MeshPhysicalMaterial({
-    color: '#D42A1B', 
-    roughness: 0.5,
+    color: "#FF4D00",
+    roughness: 0.6,
     metalness: 0.1,
     bumpMap: bumpMap,
-    bumpScale: 0.003,
-    clearcoat: 0.4,
-    clearcoatRoughness: 0.4,
-    sheen: 1,
-    sheenColor: '#ff4d00',
+    bumpScale: 0.08,
+    clearcoat: 0.3,
+    clearcoatRoughness: 0.2,
+    sheen: 0.4,
+    sheenColor: "#FF4D00",
+    sheenRoughness: 0.5,
   }), [bumpMap]);
 
   const stages = [
