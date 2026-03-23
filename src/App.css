@@ -336,12 +336,13 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 8%;
+  padding: 0 12%;
   pointer-events: none;
+  box-sizing: border-box;
 }
 
 .podium-stat-left, .podium-stat-right {
-  width: 250px;
+  max-width: 300px;
   pointer-events: auto;
 }
 
