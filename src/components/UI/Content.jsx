@@ -34,24 +34,34 @@ const Content = () => {
       </section>
 
       {/* PAGE 1: ELITE CONTROL */}
-      <section className="section section-split">
-        <div className="layout-detail-left">
-          <div className="metric-group">
-            <p className="label-orange">• PERFORMANCE METRICS</p>
-            <h2 className="title-medium">ELITE<br/>CONTROL</h2>
+      <section className="section section-split section-elite">
+        <div className="layout-elite">
+          <div className="elite-header">
+            <p className="label-orange-dot"><span></span> PERFORMANCE METRICS</p>
+            <h1 className="title-huge-condensed">ELITE<br/>CONTROL</h1>
           </div>
-          <div className="stat-block">
-            <h3>100%</h3>
-            <p className="stat-label">MICROFIBER COMPOSITE</p>
-            <p className="stat-desc">Exclusive coating material providing superior grip management in all weather conditions.</p>
+          
+          <div className="elite-stats">
+            <div className="elite-stat-block">
+              <div className="elite-stat-header">
+                <span className="elite-val">100%</span>
+                <div className="elite-line-h"></div>
+              </div>
+              <p className="elite-label">MICROFIBER COMPOSITE</p>
+              <p className="elite-desc">Exclusive coating material providing superior grip management in all weather conditions.</p>
+            </div>
+            
+            <div className="elite-stat-block">
+              <div className="elite-stat-header">
+                <span className="elite-val">0.5mm</span>
+                <div className="elite-line-h"></div>
+              </div>
+              <p className="elite-label">PEBBLE DEPTH</p>
+              <p className="elite-desc">Optimized surface texture for precision handling and rotational feedback.</p>
+            </div>
           </div>
-          <div className="stat-block">
-            <h3>0.5mm</h3>
-            <p className="stat-label">PEBBLE DEPTH</p>
-            <p className="stat-desc">Optimized surface texture for precision handling and rotational feedback.</p>
-          </div>
+          <div className="elite-line-v"></div>
         </div>
-        <div className="spacer"></div>
       </section>
 
       {/* PAGE 2: PERFECT FLIGHT */}
