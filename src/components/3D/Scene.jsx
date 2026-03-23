@@ -15,7 +15,8 @@ const Scene = () => {
 
   return (
     <div className="canvas-container">
-      <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 45 }}>
+      <div className="hero-bg-text">SPAING</div>
+      <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 45 }} style={{ zIndex: 1 }}>
         <Suspense fallback={null}>
           <ScrollControls pages={6} damping={0.25}>
             {/* Dramatic Lighting */}

@@ -12,8 +12,6 @@ const Content = () => {
            </div>
         </div>
 
-        <div className="hero-bg-text">SPAING</div>
-
         <div className="hero-bottom-container">
           <div className="hero-price-block">
             <span className="price-label">$34.99</span>

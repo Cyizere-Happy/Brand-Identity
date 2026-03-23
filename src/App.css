@@ -108,13 +108,15 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -55%);
   font-family: var(--font-display);
   font-size: 32vw;
   color: #ffffff;
-  z-index: -1;
+  z-index: 0;
   letter-spacing: -0.02em;
-  opacity: 0.08;
+  opacity: 0.15;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 /* HERO BOTTOM GRID */
