@@ -1,7 +1,16 @@
 import { useRef, useEffect, useMemo } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
-import { useScroll, useTexture } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { useScroll } from '@react-three/drei';
 import * as THREE from 'three';
+
+// Calculate icosahedron vertices for perfect pentagon placement
+const phi = (1 + Math.sqrt(5)) / 2;
+const radius = 1.5;
+const rawVertices = [
+  [-1,  phi, 0], [ 1,  phi, 0], [-1, -phi, 0], [ 1, -phi, 0],
+  [ 0, -1,  phi], [ 0,  1,  phi], [ 0, -1, -phi], [ 0,  1, -phi],
+  [ phi, 0, -1], [ phi, 0,  1], [-phi, 0, -1], [-phi, 0,  1]
+];
 
 const SoccerBall = () => {
   const meshRef = useRef();
@@ -17,21 +26,30 @@ const SoccerBall = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const rawTexture = useTexture('/soccer_texture.png');
-  const texture = useMemo(() => {
-    const tex = rawTexture.clone();
+  // Tiny noise for leather bump
+  const bumpMap = useMemo(() => {
+    const size = 256;
+    const data = new Uint8Array(size * size);
+    for (let i = 0; i < size * size; i++) data[i] = Math.random() * 255;
+    const tex = new THREE.DataTexture(data, size, size, THREE.LuminanceFormat);
     tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
-    tex.anisotropy = 16;
+    tex.needsUpdate = true;
     return tex;
-  }, [rawTexture]);
+  }, []);
 
-  const material = useMemo(() => new THREE.MeshPhysicalMaterial({
-    map: texture,
-    roughness: 0.6,
-    metalness: 0.1,
-    clearcoat: 0.3,
-    clearcoatRoughness: 0.2,
-  }), [texture]);
+  // Pre-compute the 12 pentagon positions and rotations
+  const patches = useMemo(() => {
+    return rawVertices.map(v => {
+      const vec = new THREE.Vector3(...v).normalize().multiplyScalar(radius * 0.98);
+      const dummy = new THREE.Object3D();
+      dummy.position.copy(vec);
+      dummy.lookAt(0, 0, 0);
+      dummy.rotateX(Math.PI / 2); // align cap to surface
+      // rotate randomly around Y to make pentagon point outward organically
+      dummy.rotateY(Math.PI / 5); 
+      return { position: dummy.position, rotation: dummy.rotation };
+    });
+  }, []);
 
   const stages = [
     [0, 0, 0, 0.8, 0, 0],         
@@ -71,9 +89,29 @@ const SoccerBall = () => {
 
   return (
     <group ref={meshRef}>
-      <mesh castShadow receiveShadow material={material}>
-        <sphereGeometry args={[1.5, 64, 64]} />
+      <mesh castShadow receiveShadow>
+        <sphereGeometry args={[radius, 64, 64]} />
+        <meshPhysicalMaterial 
+           color="#f4f4f4" 
+           roughness={0.7} 
+           clearcoat={0.1}
+           bumpMap={bumpMap}
+           bumpScale={0.002}
+        />
       </mesh>
+      {/* 12 Black Pentagons */}
+      {patches.map((p, i) => (
+        <mesh key={i} position={p.position} rotation={p.rotation} castShadow receiveShadow>
+          <cylinderGeometry args={[0.32, 0.32, 0.1, 5]} />
+          <meshPhysicalMaterial 
+             color="#111111" 
+             roughness={0.8} 
+             clearcoat={0.2}
+             bumpMap={bumpMap}
+             bumpScale={0.005}
+          />
+        </mesh>
+      ))}
     </group>
   );
 };

@@ -134,7 +134,7 @@ body {
   display: block;
   font-size: 5rem;
   font-weight: 900;
-  color: #FF4D00;
+  color: var(--primary-color);
   line-height: 0.9;
   font-family: var(--font-display);
 }
