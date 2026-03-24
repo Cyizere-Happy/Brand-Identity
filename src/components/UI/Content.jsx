@@ -15,7 +15,7 @@ const Content = ({ activeProduct = { price: '$34.99' }, onNext, onPrev }) => {
         <div className="hero-bottom-container">
           <div className="hero-price-block">
             <span className="price-label">{activeProduct.price}</span>
-            <span className="price-subtext">SIZE: 29.5" • OFFICIAL</span>
+            <span className="price-subtext">{activeProduct.desc}</span>
           </div>
           
           <div className="hero-cta-block">

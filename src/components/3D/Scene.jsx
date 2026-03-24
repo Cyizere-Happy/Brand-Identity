@@ -2,6 +2,8 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, PerspectiveCamera, Float, Stars, ScrollControls, Scroll, ContactShadows } from '@react-three/drei';
 import Basketball from './Basketball';
 import Football from './Football';
+import SoccerBall from './SoccerBall';
+import Volleyball from './Volleyball';
 import Fragments from './Fragments';
 import Pedestal from './Pedestal';
 import HUD from './HUD';
@@ -13,8 +15,10 @@ import HeroText from './HeroText';
 import { Suspense, useState } from 'react';
 
 const products = [
-  { id: 'basketball', color: '#FF4D00', heroText: 'SPAING', price: '$34.99' },
-  { id: 'football', color: '#C84B31', heroText: 'GRIDIRON', price: '$29.99' }
+  { id: 'basketball', color: '#FF4D00', heroText: 'SPAING', price: '$34.99', desc: 'SIZE: 29.5" • OFFICIAL' },
+  { id: 'football', color: '#8B4513', heroText: 'GRIDIRON', price: '$29.99', desc: 'SIZE: 9" • PRO PIGSKIN' },
+  { id: 'soccer', color: '#2ecc71', heroText: 'STRIKER', price: '$39.99', desc: 'SIZE: 5 • MATCH BALL' },
+  { id: 'volleyball', color: '#3498db', heroText: 'SPIKE', price: '$24.99', desc: 'SIZE: 5 • INDOOR/BEACH' }
 ];
 
 const Scene = () => {
@@ -39,7 +43,10 @@ const Scene = () => {
             <directionalLight position={[0, -5, 5]} intensity={0.5} />
 
             <Float speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
-              {activeProductIdx === 0 ? <Basketball /> : <Football />}
+              {activeProductIdx === 0 && <Basketball />}
+              {activeProductIdx === 1 && <Football />}
+              {activeProductIdx === 2 && <SoccerBall />}
+              {activeProductIdx === 3 && <Volleyball />}
             </Float>
             <HeroText text={activeProduct.heroText} />
 
