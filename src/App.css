@@ -1,7 +1,7 @@
 :root {
   --bg-color: #000000;
   --text-color: #ffffff;
-  --accent-orange: #FF4D00;
+  --primary-color: #FF4D00;
   --gray-text: #666666;
   --font-display: 'Bebas Neue', cursive;
   --font-main: 'Inter', sans-serif;
@@ -88,7 +88,7 @@ body {
   text-transform: uppercase;
 }
 
-.main-nav a.active { color: var(--accent-orange); }
+.main-nav a.active { color: var(--primary-color); }
 
 /* SECTIONS */
 .section {
@@ -151,7 +151,7 @@ body {
 }
 
 .add-to-cart-btn {
-  background: var(--accent-orange);
+  background: var(--primary-color);
   color: white;
   border: none;
   padding: 1.2rem 3.5rem;
@@ -196,7 +196,7 @@ body {
   transform: translateY(-50%);
   writing-mode: vertical-rl;
   font-weight: 900;
-  color: var(--accent-orange);
+  color: var(--primary-color);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
 }
@@ -210,7 +210,7 @@ body {
 }
 
 .label-orange-bg {
-  background: var(--accent-orange);
+  background: var(--primary-color);
   color: white;
   padding: 0.4rem 1rem;
   font-size: 0.7rem;
@@ -262,9 +262,9 @@ body {
 .dot-radar {
   width: 6px;
   height: 6px;
-  background: var(--accent-orange);
+  background: var(--primary-color);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-orange);
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
 .promo-video {
@@ -313,7 +313,7 @@ body {
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.2em;
-  color: var(--accent-orange);
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -323,7 +323,7 @@ body {
 .label-orange-dot span {
   width: 6px;
   height: 6px;
-  background: var(--accent-orange);
+  background: var(--primary-color);
   border-radius: 50%;
   display: inline-block;
 }
@@ -668,7 +668,7 @@ body {
 }
 
 .label-orange {
-  color: var(--accent-orange);
+  color: var(--primary-color);
   font-weight: 900;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
@@ -699,6 +699,6 @@ body {
   gap: 0.5rem;
 }
 
-.side-nav-vertical .current { color: var(--accent-orange); }
+.side-nav-vertical .current { color: var(--primary-color); }
 .side-nav-vertical .total { color: #444; }
 .side-nav-vertical .separator { color: #333; }

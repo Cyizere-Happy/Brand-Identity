@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Environment, PerspectiveCamera, Float, Stars, ScrollControls, Scroll, ContactShadows } from '@react-three/drei';
 import Basketball from './Basketball';
+import Football from './Football';
 import Fragments from './Fragments';
 import Pedestal from './Pedestal';
 import HUD from './HUD';
@@ -11,25 +12,36 @@ import Cart from '../UI/Cart';
 import HeroText from './HeroText';
 import { Suspense, useState } from 'react';
 
+const products = [
+  { id: 'basketball', color: '#FF4D00', heroText: 'SPAING', price: '$34.99' },
+  { id: 'football', color: '#C84B31', heroText: 'GRIDIRON', price: '$29.99' }
+];
+
 const Scene = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [activeProductIdx, setActiveProductIdx] = useState(0);
+
+  const activeProduct = products[activeProductIdx];
+
+  const handleNext = () => setActiveProductIdx((prev) => (prev + 1) % products.length);
+  const handlePrev = () => setActiveProductIdx((prev) => (prev - 1 + products.length) % products.length);
 
   return (
-    <div className="canvas-container">
+    <div className="canvas-container" style={{ '--primary-color': activeProduct.color }}>
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 45 }}>
         <Suspense fallback={null}>
           <ScrollControls pages={6} damping={0.25}>
             {/* Dramatic Lighting */}
             <ambientLight intensity={0.2} />
             <spotLight position={[10, 15, 10]} angle={0.25} penumbra={1} intensity={1500} castShadow />
-            <pointLight position={[-10, 5, -5]} intensity={1500} color="#FF4D00" /> {/* Left Rim */}
-            <pointLight position={[10, 5, -5]} intensity={1500} color="#FF4D00" />  {/* Right Rim */}
+            <pointLight position={[-10, 5, -5]} intensity={1500} color={activeProduct.color} /> {/* Left Rim */}
+            <pointLight position={[10, 5, -5]} intensity={1500} color={activeProduct.color} />  {/* Right Rim */}
             <directionalLight position={[0, -5, 5]} intensity={0.5} />
 
             <Float speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
-              <Basketball />
+              {activeProductIdx === 0 ? <Basketball /> : <Football />}
             </Float>
-            <HeroText />
+            <HeroText text={activeProduct.heroText} />
 
             <Pedestal position={[0, -4.5, 0]} />
             <HUD />
@@ -47,7 +59,7 @@ const Scene = () => {
                 <SideNav totalPages={6} />
                 <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
               </div>
-              <Content />
+              <Content activeProduct={activeProduct} onNext={handleNext} onPrev={handlePrev} />
             </Scroll>
           </ScrollControls>
         </Suspense>

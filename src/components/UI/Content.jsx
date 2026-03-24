@@ -1,6 +1,6 @@
 import { Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Content = () => {
+const Content = ({ activeProduct = { price: '$34.99' }, onNext, onPrev }) => {
   return (
     <div className="content-wrapper">
       {/* PAGE 0: SPAING HERO */}
@@ -14,7 +14,7 @@ const Content = () => {
 
         <div className="hero-bottom-container">
           <div className="hero-price-block">
-            <span className="price-label">$34.99</span>
+            <span className="price-label">{activeProduct.price}</span>
             <span className="price-subtext">SIZE: 29.5" • OFFICIAL</span>
           </div>
           
@@ -24,8 +24,8 @@ const Content = () => {
           
           <div className="hero-nav-block">
              <div className="slider-arrows">
-                <div className="arrow-btn prev"><ChevronLeft size={16} /></div>
-                <div className="arrow-btn next active"><ChevronRight size={16} /></div>
+                <div className="arrow-btn prev" onClick={onPrev} style={{ cursor: 'pointer' }}><ChevronLeft size={16} /></div>
+                <div className="arrow-btn next active" onClick={onNext} style={{ cursor: 'pointer' }}><ChevronRight size={16} /></div>
              </div>
           </div>
         </div>

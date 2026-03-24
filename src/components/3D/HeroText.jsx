@@ -2,7 +2,7 @@ import { Text, useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 
-const HeroText = () => {
+const HeroText = ({ text = "SPAING" }) => {
   const textRef = useRef();
   const scroll = useScroll();
 
@@ -27,7 +27,7 @@ const HeroText = () => {
       outlineColor="white"
       fontWeight="bold"
     >
-      SPAING
+      {text}
     </Text>
   );
 };
